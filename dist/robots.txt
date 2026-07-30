@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block crawling of build assets
+Disallow: /assets/
+
+Sitemap: https://pepe.lol/sitemap.xml
