@@ -9,9 +9,9 @@ import { useHeroLetters } from '@/hooks/useHeroLetters';
 
 const BG_IMAGE_DESKTOP =
   'https://ik.imagekit.io/zznoau6lx/tr:w-1920,q-75,f-webp/PEPE/ChatGPT%20Image%20Jul%2030,%202026,%2002_30_48%20PM.webp';
+
 const BG_IMAGE_MOBILE =
-  'const BG_IMAGE_MOBILE =
-  'https://ik.imagekit.io/zznoau6lx/tr:w-1280,q-85,f-webp/PEPE/ChatGPT%20Image%20Jul%2030,%202026,%2002_30_48%20PM.webp';';
+  'https://ik.imagekit.io/zznoau6lx/tr:w-1280,q-85,f-webp/PEPE/ChatGPT%20Image%20Jul%2030,%202026,%2002_30_48%20PM.webp';
 
 const LETTERS = ['P', 'E', 'P', 'E'];
 
