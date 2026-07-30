@@ -95,6 +95,7 @@ export class GalleryApp {
   boundOnPointerDown!: (e: PointerEvent) => void;
   boundOnPointerMove!: (e: PointerEvent) => void;
   boundOnPointerUp!: (e: PointerEvent) => void;
+  boundOnPointerCancel!: () => void;
   boundOnKeyDown!: (e: KeyboardEvent) => void;
 
   isDown: boolean = false;
@@ -114,6 +115,7 @@ export class GalleryApp {
   ) {
     document.documentElement.classList.remove('no-js');
     this.container = container;
+    this.container.style.touchAction = 'pan-y';
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck.bind(this), 200);
@@ -278,6 +280,7 @@ export class GalleryApp {
     this.boundOnPointerDown = this.onPointerDown.bind(this);
     this.boundOnPointerMove = this.onPointerMove.bind(this);
     this.boundOnPointerUp = this.onPointerUp.bind(this);
+    this.boundOnPointerCancel = this.onPointerUp.bind(this);
     this.boundOnKeyDown = this.onKeyDown.bind(this);
 
     // ResizeObserver — observes the container directly, no global window listener.
@@ -301,6 +304,7 @@ export class GalleryApp {
     this.container.addEventListener('pointerdown', this.boundOnPointerDown);
     window.addEventListener('pointermove', this.boundOnPointerMove);
     window.addEventListener('pointerup', this.boundOnPointerUp);
+    window.addEventListener('pointercancel', this.boundOnPointerCancel);
     this.container.addEventListener('keydown', this.boundOnKeyDown);
   }
 
@@ -314,6 +318,7 @@ export class GalleryApp {
     this.container.removeEventListener('pointerdown', this.boundOnPointerDown);
     window.removeEventListener('pointermove', this.boundOnPointerMove);
     window.removeEventListener('pointerup', this.boundOnPointerUp);
+    window.removeEventListener('pointercancel', this.boundOnPointerCancel);
     this.container.removeEventListener('keydown', this.boundOnKeyDown);
 
     if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
