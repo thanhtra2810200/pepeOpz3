@@ -157,10 +157,14 @@ export function HeroScene() {
       )}
 
       <div
-        ref={overlayRef}
-        className="absolute inset-0 pointer-events-none z-[16] will-change-transform"
-        style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.78) 100%)' }}
-      />
+  ref={overlayRef}
+  className="absolute inset-0 pointer-events-none z-[16] will-change-transform"
+  style={{
+    background: isMobile
+      ? 'linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.60) 100%)'
+      : 'linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 55%, rgba(0,0,0,0.78) 100%)',
+  }}
+/>
 
       {!isMobile && (
         <div
