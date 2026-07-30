@@ -122,8 +122,8 @@ export class GalleryApp {
     this.createCamera();
     this.createScene();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
     this.onResize();
+    this.createMedias(items, bend, textColor, borderRadius, font);
     this.update();
     this.addEventListeners();
   }
